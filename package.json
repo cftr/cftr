@@ -10,6 +10,9 @@
     "cftr"
   ],
   "author": "cftr",
+  "contributors": [
+    "htmlguy"
+  ]
   "license": "GPL-3",
   "devDependencies": {
     "coffee-script": "^1.9.3",
