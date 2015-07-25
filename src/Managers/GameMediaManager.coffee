@@ -27,21 +27,21 @@ class GameMediaManager
 
   preloadAudio: (i, callback) ->
     if i < @game.audioNeeded.length
-      @audio[i] = new Audio
-      @audio[i].oncanplaythrough = ->
+      @audio[@game.audioNeeded[i]] = new Audio
+      @audio[@game.audioNeeded[i]].oncanplaythrough = ->
         @preloadAudio ++i, callback
-      @audio[i].src = @game.audioNeeded[i]
+      @audio[@game.audioNeeded[i]].src = @game.audioNeeded[i]
     else
       callback()
 
   preloadImages: (i, callback) ->
     if i < @game.imagesNeeded.length
-      @images[i] = new Image
-      @images[i].onload = ->
+      @images[@game.imagesNeeded[i]] = new Image
+      @images[@game.imagesNeeded[i]].onload = ->
         @preloadImages ++i, callback
-      @images[i].src = @game.imagesNeeded[i]
+      @images[@game.imagesNeeded[i]].src = @game.imagesNeeded[i]
     else
       callback()
 
-  @audio: []
-  @images: []
+  @audio: {}
+  @images: {}

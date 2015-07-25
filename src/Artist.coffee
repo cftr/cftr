@@ -32,5 +32,5 @@ class Artist
     if flip
       @ctx.save()
       @ctx.scale(-1, 0)
-    @ctx.drawImage image, x, y
+    @ctx.drawImage @game.gameMediaManager.images[image], x, y
     if flip then @ctx.restore()
