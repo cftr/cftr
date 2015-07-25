@@ -37,7 +37,7 @@ class Level
 
   initialize: ->
     @objects = []
-    for i of @jsondata.objects
+    for i in @jsondata.objects
       separated = @jsondata.objects[i].split(":")
       @objects[i] =
         new window[separated[0] +
