@@ -40,8 +40,11 @@ class Game
     @gameMediaManager = new GameMediaManager this ->
       @gameLevelManager = new GameLevelManager this ->
 
-        # Game renderers and object managers.
+        # Game renderer.
         @gameRenderer = new GameRenderer this
+
+        # Keybindings managers
+        @gameKeybindingManager = new GameKeybindingManager this
 
         # Start the level.
         @gameLevelManager.levels[@level].initialize()
@@ -121,3 +124,4 @@ class Game
   imagesNeeded: [] # Needed images.
   levelsNeeded: [] # Needed levels.
   level: 0 # Current level.
+  keybindings: {}
