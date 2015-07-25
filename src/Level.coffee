@@ -47,4 +47,12 @@ class Level
 
   update: ->
     for i in @objects
-      @objects[i].update() if @objects[i].update
+      ### Surrounds the collison detection as well because collision detection
+      is pointless without an object update. ###
+      if @objects[i].update
+        # TODO: Optimize this collision loop.
+        collisions = []
+        for j in @objects
+          if @checkIntersections @objects[i], @objects[j]
+            collisons.push j
+        @objects[i].update collisions
