@@ -37,15 +37,15 @@ class Game
       throw new GameInitializationError "The canvas was not created."
 
     # Game media and level managers.
-    @gameMediaManager = new GameMediaManager this
-    @gameLevelManager = new GameLevelManager this
+    @gameMediaManager = new GameMediaManager this ->
+      @gameLevelManager = new GameLevelManager this ->
 
-    # Game renderers and object managers.
-    @gameRenderer = new GameRenderer this
-    @gameObjectManager = new GameObjectManager this
+        # Game renderers and object managers.
+        @gameRenderer = new GameRenderer this
+        @gameObjectManager = new GameObjectManager this
 
-    # Start the loop.
-    @startLoop()
+        # Start the loop.
+        @startLoop()
 
   # initCanvas: Initialize the canvas and the 2-D context.
   initCanvas: ->
