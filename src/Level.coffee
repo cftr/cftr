@@ -33,6 +33,7 @@ class Level
   parse: (json, finished) ->
     @jsondata = JSON.parse json
     @name = @jsondata.name
+    @music = @jsondata.music
     finished()
 
   initialize: ->

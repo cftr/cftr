@@ -87,12 +87,27 @@ class Game
     # Draw the game.
     @gameRenderer.render()
 
+    # Play Current Music
+    if @gameLevelManager.levels[@level].music
+      @gameMediaManager.audio[@gameLevelManager.levels[@level].music].play()
+
     # Request the next frame.
     requestAnimationFrame @animationFrame
 
+  playAudio: (aud) ->
+    @gameMediaManager.audio[aud].play()
+
   changeLevels: (n) ->
+    @stopMusic()
     @level = n
     @gameLevelManager.levels[n].initialize()
+
+  stopMusic: ->
+    # Loop through all audio.
+    for i of @gameMediaManager.audio
+      # Stop this audio.
+      @gameMediaMAnager.audio[i].pause()
+      @gameMediaMAnager.audio[i].currentTime = 0
 
   # Game properties with defaults.
   name: "The game" # Name of the game.
