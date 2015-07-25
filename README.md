@@ -14,5 +14,5 @@ This is a task list version of the list on cftr.github.io.
 - [ ] Collision Detection
 - [x] Object Management
 - [x] Music and SFX Playing
-- [ ] Key-Binding
+- [x] Key-Binding
 - [x] Image/Graphics Flipping
