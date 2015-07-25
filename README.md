@@ -1,6 +1,7 @@
 # The Calefactor Engine
 This repo stores the actual engine code.
 If you want to know about Calefactor (cftr), see https://cftr.github.io.
+For documentation, see [docs/docs.md](docs/docs.md)
 If you want developer information, please continue.
 
 ## Checklist
