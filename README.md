@@ -12,7 +12,7 @@ This is a task list version of the list on cftr.github.io.
 - [x] Drawing to the Canvas
 - [x] Image, Level Data, and Audio Preloading
 - [x] The Game Loop
-- [ ] Collision Detection
+- [x] Collision Detection
 - [x] Object Management
 - [x] Music and SFX Playing
 - [x] Key-Binding
