@@ -44,3 +44,7 @@ class Level
         new window[separated[0] +
           # Args:   X coordinate  Y coordinate  Special Data Value
           "Object"](separated[1], separated[2], separated[3])
+
+  update: ->
+    for i in @objects
+      @objects[i].update() if @objects[i].update
