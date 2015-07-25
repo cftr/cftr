@@ -42,7 +42,9 @@ class Game
 
         # Game renderers and object managers.
         @gameRenderer = new GameRenderer this
-        @gameObjectManager = new GameObjectManager this
+
+        # Start the level.
+        @gameLevelManager.levels[@level].initialize()
 
         # Start the loop.
         @startLoop()
@@ -76,7 +78,7 @@ class Game
     # Loop until a redraw is needed.
     while new Date().getTime() > @nextTick and @loops < @maxSkip
       # Update the game.
-      @gameObjectManager.update()
+      @gameLeveManager.levels[@level].update()
 
       # Get ready for the next loop.
       @nextTick += @skipTicks
@@ -99,3 +101,4 @@ class Game
   audioNeeded: [] # Needed audio.
   imagesNeeded: [] # Needed images.
   levelsNeeded: [] # Needed levels.
+  level: 0 # Current level.
