@@ -56,3 +56,9 @@ class Level
           if @checkIntersections @objects[i], @objects[j]
             collisons.push j
         @objects[i].update collisions
+
+  checkIntersections: (a, b) ->
+    return not (b.x > a.x + a.width or
+           b.x + b.width < a.x or
+           b.y + b.height > a.y or
+           b.y < a.y + a.height)
