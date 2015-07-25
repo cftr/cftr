@@ -27,9 +27,19 @@ class Level
     request.onload = ->
       that.parse @responseText finished
 
-
     request.open "get", url, true
     request.send()
 
   parse: (json, finished) ->
     @jsondata = JSON.parse json
+    @name = @jsondata.name
+    finished()
+
+  initialize: ->
+    @objects = []
+    for i of @jsondata.objects
+      separated = @jsondata.objects[i].split(":")
+      @objects[i] =
+        new window[separated[0] +
+          # Args:   X coordinate  Y coordinate  Special Data Value
+          "Object"](separated[1], separated[2], separated[3])
