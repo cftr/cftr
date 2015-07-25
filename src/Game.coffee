@@ -90,6 +90,10 @@ class Game
     # Request the next frame.
     requestAnimationFrame @animationFrame
 
+  changeLevels: (n) ->
+    @level = n
+    @gameLevelManager.levels[n].initialize()
+
   # Game properties with defaults.
   name: "The game" # Name of the game.
   canvas: null # Canvas object.
