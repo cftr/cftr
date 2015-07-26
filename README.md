@@ -17,3 +17,7 @@ This is a task list version of the list on cftr.github.io.
 - [x] Music and SFX Playing
 - [x] Key-Binding
 - [x] Image/Graphics Flipping
+
+## The Test Game
+
+The test game is located at [cftr/test](https://github.com/cftr/test).
