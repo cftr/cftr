@@ -135,8 +135,8 @@ Game = (function() {
     var i, results;
     results = [];
     for (i in this.gameMediaManager.audio) {
-      this.gameMediaMAnager.audio[i].pause();
-      results.push(this.gameMediaMAnager.audio[i].currentTime = 0);
+      this.gameMediaManager.audio[i].pause();
+      results.push(this.gameMediaManager.audio[i].currentTime = 0);
     }
     return results;
   };

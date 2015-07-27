@@ -109,8 +109,8 @@ class Game
     # Loop through all audio.
     for i of @gameMediaManager.audio
       # Stop this audio.
-      @gameMediaMAnager.audio[i].pause()
-      @gameMediaMAnager.audio[i].currentTime = 0
+      @gameMediaManager.audio[i].pause()
+      @gameMediaManager.audio[i].currentTime = 0
 
   # Game properties with defaults.
   name: "The game" # Name of the game.
