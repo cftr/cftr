@@ -60,7 +60,7 @@ class Game
     # Get the graphics context.
     @graphicsContext = @canvas.getContext "2d"
     # Change the canvas origin to bottom-left.
-    @grapgicsContext.transform -1, 0, 0, 1, @canvas.height, 0
+    @graphicsContext.transform -1, 0, 0, 1, @canvas.height, 0
     # Create the artist (methods for drawing to canvas.)
     @artist = new Artist @canvas, @grapicsContext
 

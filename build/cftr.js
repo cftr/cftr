@@ -95,7 +95,7 @@ Game = (function() {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
     this.graphicsContext = this.canvas.getContext("2d");
-    this.grapgicsContext.transform(-1, 0, 0, 1, this.canvas.height, 0);
+    this.graphicsContext.transform(-1, 0, 0, 1, this.canvas.height, 0);
     return this.artist = new Artist(this.canvas, this.grapicsContext);
   };
 
