@@ -43,7 +43,8 @@ class Level
       @objects[i] =
         new window[separated[0] +
           # Args:   X coordinate  Y coordinate  Special Data Value
-          "Object"](separated[1], separated[2], separated[3])
+          "Object"](parseInt (separated[1]), parseInt (separated[2]),
+            parseInt (separated[3]))
 
   update: ->
     for i in @objects

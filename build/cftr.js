@@ -321,7 +321,7 @@ Level = (function() {
     for (k = 0, len = ref.length; k < len; k++) {
       i = ref[k];
       separated = this.jsondata.objects[i].split(":");
-      results.push(this.objects[i] = new window[separated[0] + "Object"](separated[1], separated[2], separated[3]));
+      results.push(this.objects[i] = new window[separated[0] + "Object"](parseInt(separated[1], parseInt(separated[2], parseInt(separated[3])))));
     }
     return results;
   };
