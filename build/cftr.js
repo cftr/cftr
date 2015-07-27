@@ -241,6 +241,161 @@ GameInitializationError = (function(superClass) {
   You should have received a copy of the GNU General Public License
   along with The Calefactor Engine.  If not, see <http://www.gnu.org/licenses/>.
  */
+var GameKeybindingManager;
+
+GameKeybindingManager = (function() {
+  function GameKeybindingManager(game) {
+    var that;
+    this.game = game;
+    that = this;
+    window.onkeydown = function(e) {
+      return that.keydown[e.keyCode] = true;
+    };
+    window.onkeyup = function(e) {
+      return that.keydown[e.keyCode] = false;
+    };
+  }
+
+  GameKeybindingManager.prototype.isKeyDown = function(key) {
+    return keysdown[this.game.keybindings[key]];
+  };
+
+  GameKeybindingManager.keysdown = [];
+
+  return GameKeybindingManager;
+
+})();
+
+
+/*
+  The Calefactor Engine
+  Copyright (C) 2015 Calefactor Contributors
+
+  This file is part of The Calefactor Engine.
+
+  The Calefactor Engine is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  The Calefactor Engine is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with The Calefactor Engine.  If not, see <http://www.gnu.org/licenses/>.
+ */
+var GameLevelManager;
+
+GameLevelManager = (function() {
+  function GameLevelManager(game, finished) {
+    this.game = game;
+    this.preloadLevels(0, function() {
+      return finished();
+    });
+  }
+
+  GameLevelManager.prototype.preloadLevels = function(i, callback) {
+    if (i < this.game.levelsNeeded.length) {
+      return this.levels[i] = new Level(this.game, this.game.levelsNeeded[i], function() {
+        return this.preloadLevels(++i, callback);
+      });
+    } else {
+      return callback();
+    }
+  };
+
+  GameLevelManager.levels = [];
+
+  return GameLevelManager;
+
+})();
+
+
+/*
+  The Calefactor Engine
+  Copyright (C) 2015 Calefactor Contributors
+
+  This file is part of The Calefactor Engine.
+
+  The Calefactor Engine is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  The Calefactor Engine is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with The Calefactor Engine.  If not, see <http://www.gnu.org/licenses/>.
+ */
+var GameMediaManager;
+
+GameMediaManager = (function() {
+  function GameMediaManager(game, finished) {
+    this.game = game;
+    this.preloadAudio(0, function() {
+      return this.preloadImages(0, function() {
+        return finished();
+      });
+    });
+  }
+
+  GameMediaManager.prototype.preloadAudio = function(i, callback) {
+    if (i < this.game.audioNeeded.length) {
+      this.audio[this.game.audioNeeded[i]] = new Audio;
+      this.audio[this.game.audioNeeded[i]].oncanplaythrough = function() {
+        return this.preloadAudio(++i, callback);
+      };
+      return this.audio[this.game.audioNeeded[i]].src = this.game.audioNeeded[i];
+    } else {
+      return callback();
+    }
+  };
+
+  GameMediaManager.prototype.preloadImages = function(i, callback) {
+    if (i < this.game.imagesNeeded.length) {
+      this.images[this.game.imagesNeeded[i]] = new Image;
+      this.images[this.game.imagesNeeded[i]].onload = function() {
+        return this.preloadImages(++i, callback);
+      };
+      return this.images[this.game.imagesNeeded[i]].src = this.game.imagesNeeded[i];
+    } else {
+      return callback();
+    }
+  };
+
+  GameMediaManager.audio = {};
+
+  GameMediaManager.images = {};
+
+  return GameMediaManager;
+
+})();
+
+
+/*
+  The Calefactor Engine
+  Copyright (C) 2015 Calefactor Contributors
+
+  This file is part of The Calefactor Engine.
+
+  The Calefactor Engine is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  The Calefactor Engine is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with The Calefactor Engine.  If not, see <http://www.gnu.org/licenses/>.
+ */
 var GameRenderer;
 
 GameRenderer = (function() {

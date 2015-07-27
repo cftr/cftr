@@ -31,4 +31,4 @@ class GameLevelManager
     else
       callback()
 
- @levels: []
+  @levels: []
