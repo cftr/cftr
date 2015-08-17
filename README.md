@@ -1,3 +1,9 @@
+# Looking For New Maintainer
+I, htmlguy, have started a project I am more interested in than this one,
+and would like to hand this project off to somebody else.
+If you would like to own this project, just post an issue in the issues
+saying you want it and I will make you an administrator of the project.
+
 # The Calefactor Engine
 This repo stores the actual engine code.
 If you want to know about Calefactor (cftr), see https://cftr.github.io.
